@@ -1,4 +1,5 @@
 <?php
+use Stark\App\Providers\AppProvider;
 use josegonzalez\Dotenv\Loader as Dotenv;
 use Radar\Adr\Boot;
 use Relay\Middleware\ExceptionHandler;
@@ -17,7 +18,9 @@ Dotenv::load([
 ]);
 
 $boot = new Boot();
-$adr = $boot->adr();
+$adr = $boot->adr([
+    AppProvider::class
+], true);
 
 /**
  * Middleware
@@ -30,15 +33,7 @@ $adr->middle('Radar\Adr\Handler\ActionHandler');
 /**
  * Routes
  */
-$adr->get('Hello', '/{name}?', function (array $input) {
-        $payload = new Aura\Payload\Payload();
-        return $payload
-            ->setStatus(Aura\Payload_Interface\PayloadStatus::SUCCESS)
-            ->setOutput([
-                'phrase' => 'Hello ' . $input['name']
-            ]);
-    })
-    ->defaults(['name' => 'world']);
+$adr->get('Users\GetUsers', '/users', 'Stark\Domain\Services\Users\GetUsers');
 
 /**
  * Run
