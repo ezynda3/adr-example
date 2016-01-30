@@ -34,6 +34,7 @@ $adr->middle('Radar\Adr\Handler\ActionHandler');
  * Routes
  */
 $adr->get('Users\GetUsers', '/users', 'Stark\Domain\Services\Users\GetUsers');
+$adr->get('Users\GetUserShifts', '/users/{id}/shifts', 'Stark\Domain\Services\Users\GetUserShifts');
 
 /**
  * Run
