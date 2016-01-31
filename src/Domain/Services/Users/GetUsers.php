@@ -21,6 +21,10 @@ class GetUsers
         $this->payload = $payload;
     }
 
+    /**
+     * @param array $input
+     * @return mixed
+     */
     public function __invoke(array $input)
     {
         $users = [
