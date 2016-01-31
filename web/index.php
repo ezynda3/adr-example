@@ -44,6 +44,7 @@ $adr->get('Users\GetUserHours', '/users/{id}/hours', 'Stark\Domain\Services\User
 $adr->get('Shifts\GetShifts', '/shifts', 'Stark\Domain\Services\Shifts\GetShifts');
 $adr->get('Shifts\GetShiftUsers', '/shifts/{id}/users', 'Stark\Domain\Services\Shifts\GetShiftUsers');
 $adr->post('Shifts\CreateShift', '/shifts', 'Stark\Domain\Services\Shifts\CreateShift');
+$adr->put('Shifts\UpdateShift', '/shifts/{id}', 'Stark\Domain\Services\Shifts\UpdateShift');
 
 /**
  * Run
