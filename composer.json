@@ -9,7 +9,8 @@
         "relay/middleware": "~1.0",
         "josegonzalez/dotenv": "~1.0",
         "zendframework/zend-diactoros": "~1.0",
-        "robmorgan/phinx": "^0.5.1"
+        "robmorgan/phinx": "^0.5.1",
+        "fzaninotto/faker": "^1.5"
     },
     "autoload": {
         "psr-4": {
