@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Phinx\Seed\AbstractSeed;
 
 class UserSeeder extends AbstractSeed
@@ -21,7 +22,9 @@ class UserSeeder extends AbstractSeed
                 'name'          => $faker->name,
                 'role'          => 'employee',
                 'email'         => $faker->email,
-                'phone'         => $faker->phoneNumber
+                'phone'         => $faker->phoneNumber,
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
             ];
         }
 
@@ -31,7 +34,9 @@ class UserSeeder extends AbstractSeed
                 'name'          => $faker->name,
                 'role'          => 'manager',
                 'email'         => $faker->email,
-                'phone'         => $faker->phoneNumber
+                'phone'         => $faker->phoneNumber,
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
             ];
         }
 

@@ -4,6 +4,7 @@ namespace Stark\Domain\Services\Users;
 
 use Aura\Payload_Interface\PayloadInterface;
 use Aura\Payload_Interface\PayloadStatus;
+use Stark\Domain\Entities\User;
 
 class GetUser
 {
@@ -13,12 +14,19 @@ class GetUser
     private $payload;
 
     /**
+     * @var User
+     */
+    private $user;
+
+    /**
      * GetUser constructor.
      * @param PayloadInterface $payload
+     * @param User $user
      */
-    public function __construct(PayloadInterface $payload)
+    public function __construct(PayloadInterface $payload, User $user)
     {
         $this->payload = $payload;
+        $this->user = $user;
     }
 
     /**
@@ -27,22 +35,8 @@ class GetUser
      */
     public function __invoke(array $input)
     {
-        $user = [
-            'data' => [
-                [
-                    'id' => 1,
-                    'name' => 'Bob Smith',
-                    'role' => 'employee',
-                    'email' => 'bob@starkindustries.com',
-                    'phone' => '555-555-5555',
-                    'created_at' => '2016-01-30',
-                    'updated_at' => '2016-01-31'
-                ]
-            ]
-        ];
-
         return $this->payload
             ->setStatus(PayloadStatus::SUCCESS)
-            ->setOutput($user);
+            ->setOutput($this->user->find($input['id'])->toArray());
     }
 }

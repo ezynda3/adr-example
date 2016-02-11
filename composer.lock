@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e8c0dbb20db1aa0dc06f0ef13f309642",
-    "content-hash": "5d35e6227cf1b2fabf07ca8aececbf86",
+    "hash": "8cc4b83c7eaf2e09260bdaa9a4328c6f",
+    "content-hash": "f45d75b2c623e5b7a2455d05e29fba50",
     "packages": [
         {
             "name": "arbiter/arbiter",

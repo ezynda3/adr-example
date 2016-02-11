@@ -23,7 +23,7 @@ $capsule = new Capsule;
 
 $capsule->addConnection([
     'driver'    => 'sqlite',
-    'database'  => 'database.sqlite',
+    'database'  => __DIR__ . '/../database.sqlite',
 ]);
 
 $capsule->bootEloquent();
