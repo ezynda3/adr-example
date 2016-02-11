@@ -6,6 +6,7 @@ use Relay\Middleware\ExceptionHandler;
 use Relay\Middleware\ResponseSender;
 use Zend\Diactoros\Response as Response;
 use Zend\Diactoros\ServerRequestFactory as ServerRequestFactory;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 /**
  * Bootstrapping
@@ -17,6 +18,17 @@ Dotenv::load([
     'toEnv' => true,
 ]);
 
+// Boot Eloquent
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'sqlite',
+    'database'  => 'database.sqlite',
+]);
+
+$capsule->bootEloquent();
+
+// Boot Radar
 $boot = new Boot();
 $adr = $boot->adr([
     AppProvider::class

@@ -10,7 +10,8 @@
         "josegonzalez/dotenv": "~1.0",
         "zendframework/zend-diactoros": "~1.0",
         "robmorgan/phinx": "^0.5.1",
-        "fzaninotto/faker": "^1.5"
+        "fzaninotto/faker": "^1.5",
+        "illuminate/database": "^5.2"
     },
     "autoload": {
         "psr-4": {
