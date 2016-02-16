@@ -19,20 +19,21 @@ class ShiftSeeder extends AbstractSeed
 
         $shifts = [];
 
-        foreach (range(1, 30) as $index) {
+        $dt = Carbon::create(2016, 3, 1, 0);
 
-            $start_time = Carbon::now()->addDays(rand(1,30))->addHours(rand(1,12));
-            $end_time = $start_time->addHours(8);
+        foreach (range(0, 31) as $i) {
+            foreach (range(0, 3) as $j) {
 
-            $shifts[] = [
-                'manager_id'    => rand(26, 35),
-                'employee_id'   => rand(1, 25),
-                'break'         => 0.5,
-                'start_time'    => $start_time,
-                'end_time'      => $end_time,
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
-            ];
+                $shifts[] = [
+                    'manager_id' => rand(26, 35),
+                    'employee_id' => rand(1, 25),
+                    'break' => 0.5,
+                    'start_time' => $dt->addDays($i)->addHours($j * 8)->toDateTimeString(),
+                    'end_time' => $dt->addHours(8)->toDateTimeString(),
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ];
+            }
         }
 
         $this->insert('shifts', $shifts);
