@@ -35,8 +35,15 @@ class GetUser
      */
     public function __invoke(array $input)
     {
+        $user = $this->user->find($input['id']);
+
+        if (!$user) {
+            return $this->payload
+                ->setStatus(PayloadStatus::NOT_FOUND);
+        }
+
         return $this->payload
             ->setStatus(PayloadStatus::SUCCESS)
-            ->setOutput($this->user->find($input['id'])->toArray());
+            ->setOutput($user->toArray());
     }
 }
