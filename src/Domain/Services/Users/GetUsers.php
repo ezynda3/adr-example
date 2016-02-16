@@ -37,6 +37,6 @@ class GetUsers
     {
         return $this->payload
             ->setStatus(PayloadStatus::SUCCESS)
-            ->setOutput($this->user->all()->toArray());
+            ->setOutput($this->user->all());
     }
 }
