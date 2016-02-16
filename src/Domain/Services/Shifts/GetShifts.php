@@ -36,6 +36,6 @@ class GetShifts
     {
         return $this->payload
             ->setStatus(PayloadStatus::SUCCESS)
-            ->setOutput($this->shift->all()->toArray());
+            ->setOutput($this->shift->all());
     }
 }
