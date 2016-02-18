@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Shift extends Eloquent
 {
+    protected $dates = ['start_time', 'end_time'];
+
     public function manager()
     {
         return $this->hasOne(User::class, null, 'manager_id');

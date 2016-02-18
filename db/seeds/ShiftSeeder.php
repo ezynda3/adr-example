@@ -28,8 +28,8 @@ class ShiftSeeder extends AbstractSeed
                     'manager_id' => rand(26, 35),
                     'employee_id' => rand(1, 25),
                     'break' => 0.5,
-                    'start_time' => $dt->addDays($i)->addHours($j * 8)->toDateTimeString(),
-                    'end_time' => $dt->addHours(8)->toDateTimeString(),
+                    'start_time' => $dt->copy()->addDays($i)->addHours($j * 8),
+                    'end_time' => $dt->copy()->addDays($i)->addHours($j * 8 + 8),
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ];
